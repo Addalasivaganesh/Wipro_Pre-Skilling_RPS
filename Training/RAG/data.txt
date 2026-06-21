@@ -1,0 +1,5 @@
+Machine Learning helps in banks detect fraud.
+
+It is used in Netflix for recommendations.
+
+Doctors use it for disease prediction.

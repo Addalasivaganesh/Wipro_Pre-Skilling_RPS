@@ -1,0 +1,13 @@
+ticket_id,message,category,sentiment
+1,I cannot access the course,Course Access,Negative
+2,The trainer explained the concepts very well,Feedback,Positive
+3,When is the next live class,Schedule,Neutral
+4,My certificate name is incorrect,Certificate,Negative
+5,The workshop was excellent,Feedback,Positive
+6,I am unable to login to the LMS,Login Issue,Negative
+7,Please share the recording link,Recording,Neutral
+8,The course content is very useful,Feedback,Positive
+9,I forgot my LMS password,Login Issue,Negative
+10,How can I download my certificate,Certificate,Neutral
+11,The live class was very helpful,Feedback,Positive
+12,I missed yesterday's session,Schedule,Neutral

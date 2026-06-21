@@ -1,0 +1,958 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil Calibri;}{\f2\fnil\fcharset1 Cambria Math;}{\f3\fnil\fcharset1 Segoe UI Symbol;}{\f4\fnil\fcharset2 Wingdings;}{\f5\fnil\fcharset1 Segoe UI Symbol;}}
+{\*\generator Riched20 10.0.19041}{\*\mmathPr\mmathFont2\mwrapIndent1440 }\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\f0\fs22\lang9  \par
+\par
+Overview of Computer Architecture\par
+What is Computer Architecture\par
+Computer architecture refers to the conceptual design and functional structure of a computer system.\par
+It defines how hardware components such as the CPU, memory, input/output devices, and storage interact with each other to execute programs effectively.\par
+In simple words, computer architecture explains how a computer system is organized and how it performs operations internally.\par
+\par
+Importance of Computer Architecture in Software Development\par
+Understanding computer architecture is essential for software developers because:\par
+\f1\bullet\tab Software performance depends on how hardware executes instructions\par
+\bullet\tab Efficient memory and CPU usage improves application speed\par
+\bullet\tab Helps in identifying performance bottlenecks\par
+\bullet\tab Necessary for writing optimized, scalable, and reliable applications\par
+\bullet\tab Important for backend systems, cloud services, and enterprise applications\par
+In corporate environments like Wipro, developers are expected to write software that is hardware aware, not just functionally correct.\par
+\par
+Basic Terminology\par
+\bullet\tab Hardware: Physical components of a computer system\par
+\bullet\tab Software: Set of programs that run on hardware\par
+\bullet\tab CPU: Executes instructions\par
+\bullet\tab Memory (RAM): Temporary storage for running programs\par
+\bullet\tab Storage: Permanent data storage (HDD/SSD)\par
+\bullet\tab Input Devices: Keyboard, mouse\par
+\bullet\tab Output Devices: Monitor, printer\par
+\par
+Central Processing Unit (CPU)\par
+The CPU (Central Processing Unit) is the core component of a computer system responsible for executing instructions, performing calculations, and controlling system operations.\par
+It acts as the brain of the computer.\par
+\par
+CPU Components and Their Functions\par
+1. Control Unit (CU)\par
+\bullet\tab Fetches instructions from memory\par
+\bullet\tab Decodes instructions\par
+\bullet\tab Controls data flow between CPU, memory, and I/O devices\par
+2. Arithmetic Logic Unit (ALU)\par
+\bullet\tab Performs arithmetic operations (addition, subtraction, multiplication, division)\par
+\bullet\tab Performs logical operations (AND, OR, NOT, comparison)\par
+3. Registers\par
+\bullet\tab Small, high speed memory inside CPU\par
+\bullet\tab Stores instructions, data, addresses, and intermediate results\par
+4. Cache Memory\par
+\bullet\tab Stores frequently used data and instructions\par
+\bullet\tab Faster than RAM\par
+\bullet\tab Reduces CPU waiting time\par
+\par
+How a CPU Executes Instructions\par
+CPU executes instructions using the Instruction Cycle, also called the Fetch Decode Execute cycle.\par
+Step 1: Fetch\par
+\bullet\tab Instruction is fetched from memory\par
+\bullet\tab Stored in the Instruction Register\par
+\bullet\tab Program Counter points to the next instruction\par
+Step 2: Decode\par
+\bullet\tab Control Unit decodes the instruction\par
+\bullet\tab Determines required operation and operands\par
+Step 3: Execute\par
+\bullet\tab ALU performs the operation\par
+\bullet\tab Data is processed\par
+\bullet\tab Result is generated\par
+Step 4: Store (Write Back)\par
+\bullet\tab Result is stored in register or memory\par
+\bullet\tab Program Counter is updated\par
+This cycle repeats continuously until program execution completes.\par
+\par
+CPU Performance Factors\par
+1. Clock Speed\par
+\bullet\tab Measures how many cycles CPU executes per second\par
+\bullet\tab Higher clock speed \f2\u8594?\f0  faster execution\par
+2. Number of Cores\par
+\f1\bullet\tab Multi core CPUs execute tasks in parallel\par
+\bullet\tab Improves multitasking and performance\par
+3. Cache Size\par
+\bullet\tab Larger cache \f2\u8594?\f0  fewer memory accesses\par
+\f1\bullet\tab Faster data availability\par
+4. Architecture and Instruction Set\par
+\bullet\tab Efficient instruction sets improve performance\par
+\bullet\tab Examples: x86, ARM\par
+5. Word Length\par
+\bullet\tab Amount of data CPU can process at a time\par
+\bullet\tab 64 bit CPUs handle more data efficiently\par
+\par
+\par
+\par
+\par
+\par
+ \par
+Client Layer\par
+\bullet\tab The client uses a browser (Chrome, Edge, Firefox, etc.).\par
+\bullet\tab The browser is used to send requests and receive responses.\par
+\bullet\tab Users interact with the application through the browser.\par
+\par
+UI Layer (Presentation Layer)\par
+\bullet\tab This layer is responsible for presentation logic.\par
+\bullet\tab Technologies used: \par
+o\tab Angular\par
+o\tab React\par
+\bullet\tab It handles: \par
+o\tab User interface (pages, forms, buttons)\par
+o\tab User input\par
+o\tab Sending API requests to the backend\par
+\bullet\tab It does not contain business logic or database access.\par
+\par
+API Layer (Business Logic Layer)\par
+\bullet\tab This layer contains the core business logic.\par
+\bullet\tab Frameworks used: \par
+o\tab Spring Boot\par
+o\tab FastAPI\par
+o\tab Django\par
+\bullet\tab Responsibilities: \par
+o\tab Validating requests\par
+o\tab Applying business rules\par
+o\tab Processing data\par
+o\tab Sending responses back to the UI layer\par
+\bullet\tab Acts as a bridge between UI and Database.\par
+Database Layer\par
+\bullet\tab Used for data storage and retrieval.\par
+\bullet\tab Stores: \par
+o\tab User data\par
+o\tab Application data\par
+o\tab Transaction data\par
+\bullet\tab The API layer interacts directly with the database, not the UI layer.\par
+\par
+Flow of the Application\par
+1.\tab User performs an action in the browser\par
+2.\tab Request goes to the UI layer\par
+3.\tab UI sends request to the API layer\par
+4.\tab API processes logic and interacts with the database\par
+5.\tab Response flows back: \par
+o\tab Database \f2\u8594?\f0  API \f2\u8594?\f0  UI \f2\u8594?\f0  Browser\par
+\par
+\par
+\par
+ \par
+\par
+In large web applications like Amazon, many users access the same pages repeatedly, such as the home page, offers page, product listings, etc. If every request goes directly to the database, it increases load on the database and slows down the application. To avoid this problem, cache is used.\par
+Cache is a temporary memory that stores frequently accessed data so that it can be served quickly without querying the database again.\par
+Why Cache is Used\par
+\f1\bullet\tab Database access is slow compared to memory access\par
+\bullet\tab Repeated queries for the same data waste time and resources\par
+\bullet\tab High traffic can overload the database\par
+\bullet\tab Cache helps in faster response and better performance\par
+Therefore, cache is used to improve speed, scalability, and user experience.\par
+Position of Cache in the Architecture\par
+In the given diagram:\par
+\bullet\tab Client sends request through the browser\par
+\bullet\tab Cache is present in the UI layer (Amazon server side)\par
+\bullet\tab API layer and database are accessed only when required\par
+Cache acts as a middle layer between UI and API\par
+\par
+How Cache Works (Flow Explanation)\par
+First Request (Cache Miss)\par
+1.\tab User opens amazon.in in the browser\par
+2.\tab UI layer checks cache\par
+3.\tab Data is not present in cache (cache miss)\par
+4.\tab Request is sent to API layer\par
+5.\tab API fetches data from database\par
+6.\tab Data is returned to UI\par
+7.\tab UI stores the data in cache\par
+8.\tab Page is shown to the user\par
+\par
+Next Requests (Cache Hit)\par
+1.\tab Another user opens the same page\par
+2.\tab UI layer checks cache\par
+3.\tab Data is found in cache (cache hit)\par
+4.\tab Data is directly returned to UI\par
+5.\tab Page is shown immediately\par
+\f3\u10145?\f0  No API call\par
+\f3\u10145?\f0  No database access\par
+\par
+\par
+Why Cache is Faster Than Database\par
+\f1\bullet\tab Cache stores data in RAM (memory)\par
+\bullet\tab Database stores data on disk\par
+\bullet\tab Memory access is much faster than disk access\par
+\bullet\tab Cache avoids query execution and network delay\par
+Because of this, cache provides data in milliseconds, while database access takes more time.\par
+\par
+Advantages of Using Cache\par
+\bullet\tab Faster page loading\par
+\bullet\tab Reduced database load\par
+\bullet\tab Better handling of high traffic\par
+\bullet\tab Improved system performance\par
+\bullet\tab Cost effective and scalable\par
+Example\par
+Amazon home page data like banners and offers does not change for every second. So this data is stored in cache and reused for many users instead of fetching again from database.\par
+\par
+Short Conclusion\par
+Cache improves application performance by storing frequently used data in memory and serving it quickly without repeatedly accessing the database.\par
+\par
+ \par
+\par
+Input / Output (I/O) Systems\par
+Overview of I/O Systems\par
+An Input/Output (I/O) system is responsible for enabling communication between a computer system and the external world. It allows the system to receive input, process data, and deliver output efficiently.\par
+In a computer system, the CPU cannot directly interact with devices like keyboards, displays, disks, or network cards. The I/O system acts as an interface that manages this interaction in a controlled and optimized manner.\par
+________________________________________\par
+Purpose of I/O Systems\par
+The main objectives of an I/O system are:\par
+\bullet\tab To transfer data between CPU, memory, and external devices\par
+\bullet\tab To hide hardware complexity from the user and application programs\par
+\bullet\tab To improve system performance and CPU utilization\par
+\bullet\tab To support multiple devices simultaneously\par
+\par
+\par
+\par
+Components Involved in I/O Communication\par
+1.\tab CPU\par
+o\tab Initiates I/O operations\par
+o\tab Executes instructions related to data transfer\par
+o\tab Controls the overall operation of the system\par
+2.\tab Main Memory\par
+o\tab Temporarily stores data being transferred\par
+o\tab Acts as an intermediate buffer between CPU and I/O devices\par
+3.\tab I/O Devices\par
+o\tab Input devices (keyboard, mouse, scanner)\par
+o\tab Output devices (monitor, printer)\par
+o\tab Storage devices (SSD, HDD)\par
+o\tab Network devices\par
+4.\tab I/O Controllers\par
+o\tab Specialized hardware that manages communication between CPU and I/O devices\par
+o\tab Reduces direct CPU involvement\par
+5.\tab System Bus\par
+o\tab Provides data, address, and control paths between CPU, memory, and I/O devices\par
+\par
+Communication Between CPU, Memory, and I/O Devices\par
+The communication between CPU, memory, and I/O devices follows a structured flow:\par
+1.\tab The CPU issues an I/O request\par
+2.\tab The request is forwarded to the I/O controller\par
+3.\tab Data is transferred between the I/O device and memory\par
+4.\tab The CPU is notified once the operation is complete\par
+To improve efficiency, modern systems use interrupts and Direct Memory Access (DMA) so that the CPU does not remain idle waiting for I/O operations to finish.\par
+\par
+Modes of I/O Communication\par
+1. Programmed I/O\par
+\bullet\tab CPU actively waits and checks for device status\par
+\bullet\tab Simple but inefficient\par
+\bullet\tab Causes CPU wastage\par
+2. Interrupt Driven I/O\par
+\bullet\tab Device interrupts CPU when ready\par
+\bullet\tab Improves CPU efficiency\par
+\bullet\tab Widely used in modern systems\par
+3. Direct Memory Access (DMA)\par
+\bullet\tab Data transferred directly between device and memory\par
+\bullet\tab CPU involvement is minimal\par
+\bullet\tab Used for high speed devices such as disks and network cards\par
+\par
+Importance of I/O Systems in Real World Applications\par
+In enterprise grade applications:\par
+\bullet\tab Large volumes of data are transferred continuously\par
+\bullet\tab Efficient I/O handling improves system throughput\par
+\bullet\tab Poor I/O design leads to bottlenecks and performance degradation\par
+Therefore, optimized I/O systems are critical for scalability, reliability, and performance, especially in corporate environments like Wipro projects.\par
+\par
+Summary\par
+An I/O system enables communication between the CPU, memory, and external devices. It manages data transfer efficiently using controllers, interrupts, and DMA, ensuring optimal system performance and resource utilization.\par
+\par
+\par
+ \par
+Understanding Computer Networking\par
+What is Networking\par
+Computer networking is the practice of connecting two or more computers or devices so that they can share data, resources, and services with each other.\par
+A network allows systems to communicate using standard rules (protocols) over wired or wireless media. In today\rquote s corporate environment, networking is the backbone for applications, cloud services, databases, and enterprise systems.\par
+\par
+Why Networking is Important\par
+Networking is important because it enables:\par
+\bullet\tab Resource sharing (files, printers, servers)\par
+\bullet\tab Communication (emails, messaging, video calls)\par
+\bullet\tab Centralized data access\par
+\bullet\tab Scalability and collaboration\par
+\bullet\tab Internet and cloud connectivity\par
+In companies like Wipro, almost every application is network dependent, whether it is internal tools or client facing systems.\par
+\par
+Basic Networking Concepts\par
+1. Node\par
+Any device connected to a network (computer, server, mobile, router).\par
+2. Network\par
+A group of interconnected devices that can communicate with each other.\par
+3. IP Address\par
+A unique address assigned to each device to identify it on a network.\par
+\bullet\tab Private IP \endash  Used within an internal network\par
+\bullet\tab Public IP \endash  Used to communicate over the internet\par
+4. MAC Address\par
+A physical, unique identifier of a network interface card (NIC).\par
+5. Bandwidth\par
+The maximum data transfer capacity of a network.\par
+6. Latency\par
+The time taken for data to travel from source to destination.\par
+\par
+7. Packet\par
+Data is broken into small units called packets before transmission.\par
+\par
+8. Router and Switch\par
+\bullet\tab Switch \endash  Connects devices within the same network\par
+\bullet\tab Router \endash  Connects different networks (LAN to Internet)\par
+\par
+Network Types\par
+\bullet\tab LAN (Local Area Network) \endash  Office or building network\par
+\bullet\tab WAN (Wide Area Network) \endash  Internet is the best example\par
+\bullet\tab MAN (Metropolitan Area Network) \endash  City level network\par
+\par
+Network Models\par
+Network models provide a layer based structure for communication.\par
+\par
+1. OSI Model (7 Layers)\par
+1.\tab Physical \endash  Transmission of raw bits\par
+2.\tab Data Link \endash  MAC addressing and error detection\par
+3.\tab Network \endash  IP addressing and routing\par
+4.\tab Transport \endash  End to end communication (TCP/UDP)\par
+5.\tab Session \endash  Session management\par
+6.\tab Presentation \endash  Data formatting and encryption\par
+7.\tab Application \endash  User interaction layer\par
+The OSI model is mainly used for understanding and learning.\par
+\par
+2. TCP/IP Model (4 Layers)\par
+1.\tab Network Interface\par
+2.\tab Internet\par
+3.\tab Transport\par
+4.\tab Application\par
+TCP/IP is the practical model used in real world networks, including enterprise and cloud systems.\par
+\par
+\par
+Network Protocols\par
+Protocols are rules that define how data is transmitted.\par
+Common Protocols\par
+\bullet\tab TCP (Transmission Control Protocol)\par
+Reliable, connection oriented, error checked\par
+\bullet\tab UDP (User Datagram Protocol)\par
+Faster, connectionless, less reliable\par
+\bullet\tab HTTP / HTTPS\par
+Used for web communication\par
+\bullet\tab FTP\par
+Used for file transfer\par
+\bullet\tab DNS\par
+Converts domain names to IP addresses\par
+\par
+Importance of Networking in Software Development\par
+For software developers, networking knowledge is important to:\par
+\bullet\tab Design client server applications\par
+\bullet\tab Understand APIs and microservices\par
+\bullet\tab Work with cloud platforms\par
+\bullet\tab Debug connectivity issues\par
+\bullet\tab Build scalable distributed systems\par
+In corporate projects, applications are rarely standalone. They operate in networked environments.\par
+\par
+Summary\par
+Computer networking enables communication between devices using standardized protocols and layered architectures. Understanding networking concepts, models, and protocols is essential for developing, deploying, and maintaining enterprise level software systems.\par
+\par
+\par
+ \par
+Software Development Life Cycle \endash  Practical Flow Explanation\par
+This cycle shows how a software requirement moves from client idea to production and maintenance.\par
+\par
+1. Requirements Document Phase\par
+Who is involved\par
+\bullet\tab Client / Business Stakeholders\par
+\bullet\tab Architect (Arch)\par
+\bullet\tab Sometimes Business Analyst (BA)\par
+What happens\par
+\bullet\tab Client explains: \par
+o\tab What problem they want to solve\par
+o\tab What features they expect\par
+\bullet\tab Requirements are shared in: \par
+o\tab Text documents\par
+o\tab Wireframes (screens, UI flow diagrams)\par
+Output\par
+\bullet\tab Requirements Document\par
+\bullet\tab Clear understanding of: \par
+o\tab Functional requirements\par
+o\tab High level expectations\par
+ This document is understood and validated by the Architect.\par
+No coding happens here\par
+\par
+2.  Technical Design Document Phase\par
+Who is involved\par
+\bullet\tab Architect (Arch)\par
+\bullet\tab Technical Lead (TL)\par
+What happens\par
+\bullet\tab Requirements are converted into technical design\par
+\bullet\tab Decisions are made on: \par
+o\tab How many classes\par
+o\tab How many interfaces\par
+o\tab How many components / modules\par
+o\tab Architecture pattern (monolith, microservices, etc.)\par
+o\tab Technology stack\par
+Output\par
+\bullet\tab Technical Design Document (TDD)\par
+\bullet\tab Blueprint of the application\par
+ This document guides developers during coding.\par
+ Still no coding\par
+\par
+3.  Coding Phase\par
+Who is involved\par
+\bullet\tab Senior Software Engineer (SSE)\par
+\bullet\tab Software Engineer (SE)\par
+What happens\par
+\bullet\tab Developers: \par
+o\tab Write code based on Technical Document\par
+o\tab Implement business logic\par
+o\tab Follow coding standards\par
+o\tab Do unit testing\par
+Output\par
+\bullet\tab Working code\par
+\bullet\tab Features implemented as per design\par
+Code is handed over to testing team.\par
+4. Testing Phase\par
+Who is involved\par
+\bullet\tab QA Team / Testing Team\par
+What happens\par
+\bullet\tab Testers: \par
+o\tab Verify functionality\par
+o\tab Find bugs and defects\par
+o\tab Perform: \par
+\f4\'a7\f0\tab Functional testing\par
+\f4\'a7\f0\tab Regression testing\par
+\f4\'a7\f0\tab Sometimes performance testing\par
+Output\par
+\f1\bullet\tab Bug reports (if any)\par
+\bullet\tab Test results\par
+\bullet\tab QA sign off (if passed)\par
+ If bugs are found, code goes back to developers.\par
+\par
+5.\tab Deployment Phase (GO LIVE)\par
+Who is involved\par
+\bullet\tab DevOps Team\par
+\bullet\tab Release Team\par
+\bullet\tab Sometimes Developers\par
+What happens\par
+\bullet\tab Tested code is deployed to: \par
+o\tab Production Environment\par
+\bullet\tab Application becomes available to end users\par
+\bullet\tab This stage is called GO LIVE\par
+Output\par
+\bullet\tab Live application\par
+\bullet\tab Users start using the software\par
+\par
+6.\tab Maintenance Phase\par
+Who is involved\par
+\bullet\tab Maintenance Team\par
+\bullet\tab Support Team\par
+\bullet\tab Sometimes Developers\par
+What happens\par
+\bullet\tab Any issues reported by users are handled\par
+\bullet\tab Bug fixes\par
+\bullet\tab Minor enhancements\par
+\bullet\tab Performance tuning\par
+Output\par
+\bullet\tab Stable system\par
+\bullet\tab Continuous improvements\par
+ This phase continues throughout the life of the application.\par
+\par
+Complete Flow in One Line (Very Important)\par
+Client gives requirements \f2\u8594?\f0  Architect designs \f2\u8594?\f0  Developers code \f2\u8594?\f0  QA tests \f2\u8594?\f0  Code goes live \f2\u8594?\f0  Maintenance handles issues.\par
+\par
+ \par
+What is Python?\par
+Python is a high level, interpreted, and general purpose programming language.\par
+It is easy to learn and use because of its simple syntax and readability.\par
+Python supports multiple programming paradigms such as procedural, object oriented, and functional programming.\par
+It is widely used in web development, data analysis, automation, artificial intelligence, and machine learning.\par
+\par
+Advantages of Python\par
+1.\tab Easy to Learn and Use\par
+Python has simple syntax, which makes it beginner friendly.\par
+2.\tab Interpreted Language\par
+Code is executed line by line, making debugging easier.\par
+3.\tab Large Standard Library\par
+Python provides many built in libraries and frameworks.\par
+4.\tab Platform Independent\par
+Python programs can run on Windows, Linux, and macOS.\par
+5.\tab Strong Community Support\par
+Large community means more tutorials, tools, and help.\par
+6.\tab Supports AI and ML\par
+Python has powerful libraries like NumPy, Pandas, TensorFlow, and Scikit learn.\par
+\par
+How is Python useful in AI and ML World? (5 Scenarios)\par
+1.\tab Data Analysis and Preprocessing\par
+Python is used to clean, analyze, and prepare data using libraries like Pandas and NumPy.\par
+2.\tab Machine Learning Model Development\par
+Libraries such as Scikit learn help in building and training ML models easily.\par
+3.\tab Deep Learning Applications\par
+Python supports deep learning using TensorFlow, Keras, and PyTorch.\par
+4.\tab Natural Language Processing (NLP)\par
+Python is used in chatbots, language translation, and sentiment analysis using NLTK and spaCy.\par
+5.\tab Computer Vision\par
+Python is used for image recognition and face detection using OpenCV and TensorFlow.\par
+\par
+\par
+\par
+\par
+\par
+ \par
+What is AAA Pattern?\par
+AAA stands for:\par
+1.\tab Arrange\par
+2.\tab Act\par
+3.\tab Assert\par
+It is a standard structure for writing unit test cases so that tests are:\par
+\f1\bullet\tab Easy to read\par
+\bullet\tab Easy to understand\par
+\bullet\tab Easy to maintain\par
+________________________________________\par
+\f5\u-10179?\u-8903?\f0  Explanation Using Your Fan Example\par
+System: Computer Fan\par
+________________________________________\par
+1.\tab Arrange \f1\endash  Set up the environment\par
+\ldblquote Get Electricity Board \emdash  Arrange the Env\rdblquote\par
+\bullet\tab You prepare everything needed before the action\par
+\bullet\tab Nothing is tested here yet\par
+\f5\u-10179?\u-8903?\f0  In real life:\par
+\f1\bullet\tab Power supply is available\par
+\bullet\tab Fan is properly connected\par
+\bullet\tab Switch is off\par
+\f5\u-10179?\u-8903?\f0  In unit testing:\par
+\f1\bullet\tab Create objects\par
+\bullet\tab Initialize variables\par
+\bullet\tab Set test data\par
+________________________________________\par
+2.\tab Act \endash  Perform the action\par
+\ldblquote Switch the button on \emdash  Take Action\rdblquote\par
+\bullet\tab You perform one specific action\par
+\bullet\tab This is the behavior you want to test\par
+\f5\u-10179?\u-8903?\f0  In real life:\par
+\f1\bullet\tab You turn ON the switch\par
+\f5\u-10179?\u-8903?\f0  In unit testing:\par
+\f1\bullet\tab Call the method/function being tested\par
+________________________________________\par
+3.\tab Assert \endash  Verify the result\par
+\ldblquote Check whether the fan is rotating or not\rdblquote\par
+\bullet\tab You verify the outcome\par
+\bullet\tab This decides if the test passes or fails\par
+\f5\u-10179?\u-8903?\f0  In real life:\par
+\f1\bullet\tab Fan rotates \f2\u8594?\f0  \f3\u9989?\f0  Test passed\par
+\f1\bullet\tab Fan does not rotate \f2\u8594?\f0  \f3\u10060?\f0  Test failed\par
+\f5\u-10179?\u-8903?\f0  In unit testing:\par
+\f1\bullet\tab Compare expected output with actual output\par
+\par
+\par
+\f5\u-10179?\u-8903?\f0  AAA Pattern in Python Unit Test (Example)\par
+Python\par
+def test_add():\par
+# Arrange\par
+a = 2\par
+b = 3\par
+\par
+# Act\par
+result = add(a, b)\par
+\par
+# Assert\par
+assert result == 5\par
+Show more lines\par
+Mapping:\par
+\f1\bullet\tab Arrange \f2\u8594?\f0  prepare inputs\par
+\f1\bullet\tab Act \f2\u8594?\f0  call add(a, b)\par
+\f1\bullet\tab Assert \f2\u8594?\f0  check result\par
+________________________________________\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+Date: 08-05-2026/FRIDAY.\par
+\tab  \par
+\par
+1. Why Probability in Machine Learning?\par
+Machine Learning works with real world data, which is uncertain, noisy, and incomplete. Probability allows ML models to handle uncertainty and make data driven predictions instead of fixed rules.\par
+Simple Example\par
+When predicting whether an email is spam, the model does not say \ldblquote YES or NO\rdblquote  immediately. Instead, it calculates the probability that the email is spam (e.g., 92% spam).\par
+Real World Coding Example\par
+\f1\bullet\tab Spam classification using Naive Bayes\par
+\bullet\tab Customer churn prediction (probability that a user will leave)\par
+\bullet\tab Predicting rain probability in weather models\par
+ \par
+\par
+\par
+2. Mean, Median, and Mode\par
+These are measures of central tendency, used to understand where data is centered.\par
+Mean\par
+Average of all values.\par
+Example:\par
+Student marks: 60, 70, 80\par
+Mean = (60 + 70 + 80) / 3 = 70\par
+Median\par
+Middle value after sorting.\par
+Example:\par
+Marks: 40, 60, 100\par
+Median = 60 (helps when outliers exist)\par
+Mode\par
+Most frequent value.\par
+Example:\par
+Ratings: 5, 4, 4, 3\par
+Mode = 4\par
+Real World Coding Example\par
+\bullet\tab Calculating average salary (mean)\par
+\bullet\tab Finding typical house prices ignoring outliers (median)\par
+\bullet\tab Most purchased product (mode)\par
+ In ML preprocessing, these are used for:\par
+\bullet\tab Data understanding\par
+\bullet\tab Missing value imputation\par
+\par
+3. Variance and Standard Deviation\par
+These measure how spread out data values are.\par
+Variance\par
+Average of squared distances from the mean.\par
+Standard Deviation\par
+Square root of variance, easier to interpret.\par
+Simple Example\par
+Marks: 50, 50, 50\par
+\f2\u8594?\f0  Low variance (consistent performance)\par
+Marks: 10, 50, 90\par
+\f2\u8594?\f0  High variance (inconsistent performance)\par
+Real World Coding Example\par
+\f1\bullet\tab Detecting abnormal transactions in fraud detection\par
+\bullet\tab Feature scaling in ML (standardization)\par
+\bullet\tab Measuring risk in stock prices\par
+ In ML, high variance data may need normalization.\par
+\par
+4. Probability Basics\par
+Probability measures the chance of an event occurring (0 to 1).\par
+Formula\par
+Probability = Favourable Outcomes / Total Outcomes\par
+Example\par
+Rolling a die\par
+\bullet\tab Probability of getting 3 = 1/6\par
+Real World Coding Example\par
+\bullet\tab Clicking an ad\par
+\bullet\tab User buying a product\par
+\bullet\tab Predicting success/failure of an API request\par
+ ML models internally calculate probabilities for each class.\par
+\par
+\par
+5. Conditional Probability\par
+Conditional probability answers:\par
+\ldblquote What is the probability of A given B has already happened?\rdblquote\par
+Representation\par
+P(A | B)\par
+Simple Example\par
+\bullet\tab Probability of passing exam given attendance > 80%\par
+Real World Coding Example\par
+\bullet\tab Probability of disease given symptoms\par
+\bullet\tab Probability of purchase given user visited the website\par
+\bullet\tab Probability of spam given certain words appear in email\par
+ This is the foundation of many ML classifiers.\par
+\par
+6. Bayes Theorem\par
+Bayes theorem updates probability when new evidence appears.\par
+Formula\par
+P(A | B) = (P(B | A) \f0\'d7 P(A)) / P(B)\par
+Simple Explanation\par
+\f1\bullet\tab P(A) \f2\u8594?\f0  Prior probability (before data)\par
+\f1\bullet\tab P(A | B) \f2\u8594?\f0  Updated probability (after seeing data)\par
+Real World Coding Example\par
+\f1\bullet\tab Email spam filtering (Naive Bayes)\par
+\bullet\tab Medical diagnosis systems\par
+\bullet\tab Sentiment analysis\par
+ ML models keep updating predictions based on new data.\par
+\par
+7. Normal Distribution\par
+Normal distribution is a bell shaped curve where:\par
+\bullet\tab Mean = Median = Mode\par
+\bullet\tab Most data lies near the mean\par
+Example\par
+Student height, exam marks, sensor readings often follow normal distribution.\par
+Why it matters in ML\par
+\bullet\tab Many algorithms assume normally distributed data\par
+\bullet\tab Helps in anomaly detection\par
+\bullet\tab Used in probability density estimation\par
+Real World Coding Example\par
+\bullet\tab Detecting abnormal CPU usage\par
+\bullet\tab Identifying outliers in test scores\par
+\bullet\tab Modelling noise in signals\par
+\par
+8. Use Cases Where Probability Is Used (With Coding Context)\par
+Use Case\tab How Probability is Used\par
+Spam Detection\tab Probability email is spam\par
+Recommendation Systems\tab Probability user likes an item\par
+Medical Diagnosis\tab Probability of disease\par
+Fraud Detection\tab Probability of transaction being fake\par
+Stock Prediction\tab Probability of price movement\par
+Weather Forecasting\tab Chance of rain\par
+In ML code, predictions often look like:\par
+Plain Text\par
+Class: Fraud\par
+Probability: 0.87\par
+ \par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+ \par
+\par
+Vectors\par
+\par
+\ldblquote A vector is a one dimensional array used to store related data like marks or salaries.\rdblquote\par
+\par
+Example:\par
+import numpy as np\par
+marks = np.array([85, 90, 78])\par
+print(marks)\par
+Output\par
+[85 90 78]\par
+\par
+Key point:\par
+\bullet\tab Vectors are 1 D (ndim = 1)\par
+\bullet\tab Operations apply to all elements at once\par
+\par
+\par
+\par
+Matrices\par
+\ldblquote A matrix is a two dimensional structure with rows and columns, often used to represent tabular data.\rdblquote\par
+Example:\par
+\par
+matrix = np.array([\par
+[80, 70, 90],\par
+[60, 75, 88],\par
+[95, 85, 91]\par
+])\par
+print(matrix)\par
+Output\par
+[[80 70 90]\par
+ [60 75 88]\par
+ [95 85 91]]\par
+\par
+Key point:\par
+\bullet\tab Matrix = 2 D array\par
+\bullet\tab Used to store multiple records and features\par
+\par
+Matrix Operations\par
+\par
+\ldblquote NumPy supports addition, subtraction, and multiplication of matrices.\rdblquote\par
+Element wise operations\par
+A + B\par
+A - B\par
+A * B\par
+Matrix multiplication\par
+np.matmul(A, B)\par
+\par
+Key rule:\par
+Columns of A must match rows of B\par
+Statistics Basics\par
+\ldblquote Statistics help us summarize and understand data.\rdblquote\par
+Common measures:\par
+data = [60, 70, 80, 90, 100]\par
+print(np.mean(data))\par
+print(np.median(data))\par
+print(np.var(data))\par
+print(np.std(data))\par
+Output\par
+80.0\par
+80.0\par
+200.0\par
+14.142135623730951\par
+\par
+Intuition:\par
+\bullet\tab Mean \f2\u8594?\f0  average\par
+\f1\bullet\tab Variance \f2\u8594?\f0  spread (squared)\par
+\f1\bullet\tab Std deviation \f2\u8594?\f0  spread (actual units)\par
+\par
+\par
+\par
+Probability Basics\par
+\par
+\ldblquote Probability measures uncertainty and likelihood.\rdblquote\par
+Example use cases:\par
+\f1\bullet\tab Spam detection\par
+\bullet\tab Prediction confidence\par
+\bullet\tab Risk analysis\par
+Example (concept):\par
+np.random.normal(loc=50, scale=10, size=1000)\par
+1000 random values centered around 50\par
+\par
+NumPy Basics\par
+\par
+\ldblquote NumPy provides fast numerical operations and vectorized computation.\rdblquote\par
+Why NumPy?\par
+\bullet\tab Faster than Python lists\par
+\bullet\tab Cleaner syntax\par
+\bullet\tab Core library for ML & Data Science\par
+Indexing\par
+\par
+\ldblquote Indexing helps access specific rows, columns, or elements.\rdblquote\par
+\par
+\bullet\tab Examples:\par
+\par
+\bullet\tab matrix[0] # first row\par
+\bullet\tab matrix[:, 2] # third column\par
+\bullet\tab matrix[1][1] # specific element\par
+\par
+Outputs\par
+[80 70 90]\par
+[90 88 91]\par
+75\par
+\par
+\par
+Rule:\par
+ Indexing starts from 0\par
+\par
+\par
+Reshaping\par
+\par
+\ldblquote Reshaping changes the structure, not the data.\rdblquote\par
+\par
+arr = np.arange(1, 13)\par
+arr.reshape(3, 4)\par
+\par
+Output\par
+[[ 1  2  3  4]\par
+ [ 5  6  7  8]\par
+ [ 9 10 11 12]]\par
+\par
+\par
+Rule:\par
+Total elements must remain the same\par
+\par
+Broadcasting\par
+\par
+\ldblquote Broadcasting allows NumPy to perform operations between arrays of different shapes.\rdblquote\par
+Example:\par
+\par
+matrix + 10\par
+\par
+Adds 10 to every element automatically\par
+No loops required\par
+\par
+Conclusion\par
+What I\rquote ll say to end:\par
+\ldblquote These concepts\emdash vectors, matrices, statistics, and NumPy operations\emdash form the foundation for Machine Learning, data preprocessing, and model building.\rdblquote\par
+\par
+\ldblquote NumPy makes numerical computation simple, fast, and scalable.\rdblquote\par
+\par
+\par
+\par
+\par
+Date: 11-05-2026/MONDAY.\par
+\par
+ \par
+\par
+What is Pandas in Python\par
+\bullet\tab Pandas is an open source Python library used for data manipulation and data analysis.\par
+\bullet\tab It provides powerful data structures to work with structured data like tables.\par
+\bullet\tab Common uses: \par
+o\tab Reading data (CSV, Excel, SQL, JSON)\par
+o\tab Cleaning missing or incorrect data\par
+o\tab Filtering, grouping, and aggregating data\par
+Used mostly when working with datasets.\par
+\par
+How is it related to Machine Learning (ML)\par
+\bullet\tab Pandas is used in the data preprocessing stage of ML.\par
+\bullet\tab Before training a model, data must be: \par
+o\tab Cleaned\par
+o\tab Formatted\par
+o\tab Transformed\par
+\bullet\tab Pandas helps in: \par
+o\tab Handling missing values\par
+o\tab Feature selection\par
+o\tab Data normalization and encoding\par
+Pandas prepares data, ML libraries (like scikit learn, TensorFlow) train models.\par
+\par
+ What is a Series\par
+\bullet\tab A Series is a one dimensional data structure in Pandas.\par
+\bullet\tab It is similar to: \par
+o\tab A Python list\par
+o\tab A single column of a table\par
+\bullet\tab It has: \par
+o\tab Values\par
+o\tab Index (labels)\par
+Example idea:\par
+Marks = [80, 85, 90]\par
+Used to store single column data.\par
+\par
+What is a Data Frame\par
+\bullet\tab A Data Frame is a two dimensional data structure.\par
+\bullet\tab It looks like a table (rows \f0\'d7 columns).\par
+\f1\bullet\tab Each column in a Data Frame is a Series.\par
+\bullet\tab Used for: \par
+o\tab Entire datasets\par
+o\tab Real world tabular data (Excel sheets, databases)\par
+Example idea:\par
+Name | Marks\par
+A    | 80\par
+B    | 85\par
+C    | 90\par
+Most commonly used Pandas object.\par
+\par
+One line summary (for quick revision)\par
+\bullet\tab Series \f2\u8594?\f0  1D data\par
+\f1\bullet\tab Data Frame \f2\u8594?\f0  2D table\par
+\f1\bullet\tab Pandas \f2\u8594?\f0  data handling\par
+\f1\bullet\tab ML \f2\u8594?\f0  uses cleaned data from Pandas\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+DATA FRAMES\par
+ import pandas as pd\par
+import numpy as np\par
+ \par
+data = \{\par
+    "EmployeeID": [101, 102, 103, 104, 105, 106],\par
+    "Name": ["Rahul", "Aisha", "John", "Fatima", "Arjun", "Sara"],\par
+    "Department": ["IT", "HR", "IT", "Finance", "HR", "IT"],\par
+    "Age": [25, 30, 28, 35, 32, 26],\par
+    "Salary": [50000, 45000, 60000, 75000, np.nan, 58000],\par
+    "Experience": [2, 5, 4, 10, 7, 3]\par
+\}\par
+ \par
+df = pd.DataFrame(data)\par
+ \par
+print(df) \par
+ \par
+ \par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\tab\par
+\par
+\par
+ \par
+\par
+}
+ 

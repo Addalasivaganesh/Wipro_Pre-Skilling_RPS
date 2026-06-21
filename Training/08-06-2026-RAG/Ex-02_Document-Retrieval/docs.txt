@@ -1,0 +1,11 @@
+Doc1:
+Python is used for AI and ML.
+
+Doc2:
+Java is popular for enterprise applications.
+
+Doc3:
+SQL is used for database management.
+
+Doc4:
+PyTorch is a deep learning framework.

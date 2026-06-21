@@ -1,0 +1,5 @@
+Python is a programming language.
+Python is widely used in Machine Learning.
+PyTorch is a framework built using Python.
+TensorFlow is another deep learning framework.
+SQL is used for databases.

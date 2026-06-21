@@ -1,0 +1,751 @@
+Explanation
+
+✅ 1. TF‑IDF (Document → Importance Calculation)
+🔹 What you did
+You gave multiple sentences → system converted them into numbers.
+
+🔹 Step-by-step understanding
+
+
+Input (Raw Text)
+
+Example: “I love cricket”
+Each sentence = document
+
+
+
+Tokenization (breaking text into words)
+I | love | cricket
+
+
+
+Vocabulary creation
+
+Combine all unique words:
+
+cricket, football, sports, love
+
+
+
+Term Frequency (TF)
+
+Counts how many times a word appears in a document
+Example:
+
+love → appears 1 time in each doc
+
+
+
+Inverse Document Frequency (IDF)
+
+Checks how rare a word is across all documents
+Formula idea:
+
+IDF ↑ if word appears in fewer documents
+IDF ↓ if word appears everywhere
+
+
+
+TF × IDF
+
+Final importance score
+
+
+
+
+🔹 Final Logic
+Common word → low score (love)
+Rare word → high score (cricket, football)
+
+
+✅ ✅ ✅ 2. Word2Vec (Context-based Learning)
+🔹 What you did
+You gave word pairs like:
+doctor → hospital
+nurse → hospital
+
+
+🔹 Step-by-step understanding
+
+
+Input format
+
+List of words grouped as sentences
+
+
+
+Context window
+
+Model looks around a word
+Example:
+
+doctor ↔ hospital (related)
+
+
+
+Training process
+
+Neural network learns:
+
+words appearing together → similar vectors
+
+
+
+Vector creation
+
+Each word → list of numbers
+
+doctor → [0.2, -0.5, ...]
+
+
+
+Similarity calculation
+
+Uses cosine similarity
+Checks angle between vectors
+
+
+
+
+🔹 Final Logic
+Same context → high similarity
+Different context → low similarity
+
+
+✅ ✅ ✅ 3. GloVe (Global Relationships)
+🔹 What you did
+You loaded a huge file where:
+word → vector
+
+
+🔹 Step-by-step understanding
+
+
+File structure
+doctor 0.123 0.456 ...
+
+
+
+Reading file
+
+One line at a time
+
+
+
+Splitting
+first word → key
+rest numbers → vector
+
+
+
+Storage
+dictionary: word → vector
+
+
+
+
+🔹 Difference from Word2Vec
+Word2VecGloVeLocal contextGlobal co-occurrenceLearns from sentencesLearns from full corpus
+
+🔹 Final Logic
+Similar meaning → similar vectors
+
+
+✅ ✅ ✅ 4. Embedding Layer (PyTorch)
+🔹 What you did
+You created:
+nn.Embedding(10, 5)
+
+
+🔹 Step-by-step understanding
+
+
+10
+→ Number of words (vocabulary size)
+
+
+5
+→ Features per word
+
+
+
+
+Input
+
+index = 0
+
+
+Output
+
+vector of size 5
+
+
+🔹 Internally
+It is just a lookup table
+
+
+🔹 Final Logic
+Word index → vector representation
+
+
+✅ ✅ ✅ 5. Cosine Similarity
+🔹 What you did
+You compared two vectors
+
+🔹 Step-by-step understanding
+
+Two vectors
+
+v1 and v2
+
+
+
+Dot product
+→ measures alignment
+
+
+Magnitude
+→ length of vectors
+
+
+
+
+Final formula
+
+cosθ = (A · B) / (|A||B|)
+
+
+🔹 Meaning of results
+ValueMeaning1Same direction0No relation-1Opposite
+
+🔹 Final Logic
+Higher value → more similar
+
+
+✅ ✅ ✅ 6. Text Classification
+🔹 What you did
+You trained model to classify:
+good → positive
+bad → negative
+
+
+🔹 Step-by-step understanding
+
+Text input
+
+good movie
+bad movie
+
+
+
+Vectorization
+→ Convert text into numbers (word counts)
+
+
+Training
+→ Model learns:
+
+
+good → positive
+bad → negative
+
+
+Testing
+→ New sentence:
+
+excellent movie
+
+
+Prediction
+→ Model assigns label
+
+
+🔹 Final Logic
+Pattern learning → classification
+
+
+✅ ✅ ✅ 7. Self‑Attention / Transformer
+🔹 What you wrote
+
+Query
+Key
+Value
+
+
+🔹 Step-by-step understanding
+
+
+Query
+→ what we are searching for
+
+
+Key
+→ what is available
+
+
+Value
+→ actual information
+
+
+
+
+Matching
+
+Query compares with all Keys
+
+
+Weighted output
+→ produces final representation
+
+
+🔹 Final Logic
+Focus on important words
+
+
+✅ ✅ ✅ 8. Transfer Learning
+🔹 What you did
+
+Loaded pretrained model
+Replaced final layer
+
+
+🔹 Understanding
+
+Model already trained on:
+
+ImageNet (huge dataset)
+
+
+You change last layer:
+
+1000 classes → 2 classes
+
+
+🔹 Final Logic
+Reuse knowledge → adapt to new task
+
+
+✅ ✅ ✅ 9. Fine‑Tuning
+🔹 What you did
+
+Freeze all layers
+Unfreeze some layers
+
+
+🔹 Understanding
+
+Lower layers → general features
+Last layers → specific features
+
+
+🔹 Final Logic
+Train deeper layers for better accuracy
+
+
+✅ ✅ ✅ MASTER FLOW (VERY IMPORTANT)
+This is your entire learning pipeline today:
+Text
+↓
+TF‑IDF / CountVectorizer
+↓
+Word Embeddings (Word2Vec / GloVe / Embedding)
+↓
+Similarity (Cosine)
+↓
+Model (Naive Bayes)
+↓
+Deep Learning (Transfer Learning / Fine‑Tuning)
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+✅ TF‑IDF EXERCISES
+✅ Exercise 1
+🔹 Question
+Documents:
+
+I love cricket
+I love football
+I love sports
+
+Find:
+
+Highest TF‑IDF word
+Why “love” is low
+
+
+🔹 Code
+from sklearn.feature_extraction.text import TfidfVectorizer
+
+documents = [
+    "I love cricket",
+    "I love football",
+    "I love sports"
+]
+
+vectorizer = TfidfVectorizer()
+tfidf = vectorizer.fit_transform(documents)
+
+print("Features:", vectorizer.get_feature_names_out())
+print("Matrix:\n", tfidf.toarray())
+
+
+🔹 Answer
+
+Highest → cricket, football, sports
+Lowest → love
+
+
+🔹 Explanation
+Common words appear in all documents → low importance
+
+✅ Exercise 2
+🔹 Question
+
+Which word appears in all documents?
+Which gets highest TF‑IDF?
+
+
+🔹 Code
+from sklearn.feature_extraction.text import TfidfVectorizer
+
+documents = [
+    "Python is easy",
+    "Python is powerful",
+    "Java is powerful"
+]
+
+vectorizer = TfidfVectorizer()
+
+tfidf = vectorizer.fit_transform(documents)
+
+print("Features:", vectorizer.get_feature_names_out())
+print("Matrix:\n", tfidf.toarray())
+``
+
+
+🔹 Answer
+
+Appears everywhere → is
+Highest → easy, java
+
+
+
+✅ ✅ ✅ WORD2VEC
+✅ Exercise 1
+🔹 Question
+Train Word2Vec and print vectors
+
+🔹 Code
+from gensim.models import Word2Vec
+
+data = [
+    ["doctor","hospital"],
+    ["nurse","hospital"],
+    ["football","sport"],
+    ["cricket","sport"]
+]
+
+model = Word2Vec(sentences=data, vector_size=5, window=2, min_count=1)
+
+print("doctor:", model.wv["doctor"])
+print("nurse:", model.wv["nurse"])
+
+
+🔹 Explanation
+Words converted into vectors using context
+
+✅ Exercise 2
+🔹 Question
+Find similarities
+
+🔹 Code
+from gensim.models import Word2Vec
+
+# Training data
+data = [
+    ["doctor", "hospital"],
+    ["nurse", "hospital"],
+    ["football", "sport"],
+    ["cricket", "sport"]
+]
+
+# Train model
+model = Word2Vec(sentences=data, vector_size=5, window=2, min_count=1)
+
+# Similarity
+print("doctor vs nurse:", model.wv.similarity("doctor", "nurse"))
+print("football vs cricket:", model.wv.similarity("football", "cricket"))
+print("doctor vs football:", model.wv.similarity("doctor", "football"))
+
+🔹 Answer
+
+Most similar → doctor & nurse
+Least similar → doctor & football
+
+
+
+✅ ✅ ✅ GloVe
+✅ Exercise 1
+🔹 Question
+Load embeddings
+
+🔹 Code
+import numpy as np
+
+embeddings = {}
+
+with open("glove.6B.50d.txt", encoding="utf-8") as f:
+    for line in f:
+        values = line.split()
+        word = values[0]
+        vector = np.array(values[1:], dtype='float32')
+        embeddings[word] = vector
+
+print(len(embeddings["doctor"]))
+
+
+🔹 Answer
+Vector size = 50
+
+✅ Exercise 2
+🔹 Question
+Find similarity
+
+🔹 Code
+import numpy as np
+from numpy import dot
+from numpy.linalg import norm
+
+# Load embeddings
+embeddings = {}
+
+with open("glove.6B.50d.txt", encoding="utf-8") as f:
+    for line in f:
+        values = line.split()
+        word = values[0]
+        vector = np.array(values[1:], dtype='float32')
+        embeddings[word] = vector
+
+# Cosine similarity
+def cosine(a, b):
+    return dot(a, b) / (norm(a) * norm(b))
+
+print("doctor vs nurse:", cosine(embeddings["doctor"], embeddings["nurse"]))
+print("doctor vs football:", cosine(embeddings["doctor"], embeddings["football"]))
+
+🔹 Answer
+
+Most similar → doctor & nurse
+Least → doctor & football
+
+
+
+✅ ✅ ✅ EMBEDDING LAYER
+✅ Exercise 1
+🔹 Question
+Create embedding
+
+🔹 Code
+import torch.nn as nn
+
+embedding = nn.Embedding(10, 5)
+
+print(embedding)
+
+🔹 Answer
+10 words, 5 features
+
+✅ Exercise 2
+🔹 Code
+import torch
+import torch.nn as nn
+
+embedding = nn.Embedding(10, 5)
+
+word = torch.tensor([0])
+
+output = embedding(word)
+
+print("Output:", output)
+print("Shape:", output.shape)
+
+🔹 Answer
+Shape → (1,5)
+
+✅ Exercise 3
+🔹 Code
+import torch
+import torch.nn as nn
+
+embedding = nn.Embedding(10, 5)
+
+words = torch.tensor([0, 1, 2])
+
+output = embedding(words)
+
+print("Output:", output)
+print("Shape:", output.shape)
+
+
+🔹 Answer
+Shape → (3,5)
+
+
+✅ ✅ ✅ COSINE SIMILARITY
+✅ Exercise 1
+🔹 Code
+import torch
+import torch.nn.functional as F
+
+v1 = torch.tensor([1.,2.,3.])
+v2 = torch.tensor([1.,2.,3.])
+
+print(F.cosine_similarity(v1, v2, dim=0))
+
+
+🔹 Answer
+1 (same vectors)
+
+✅ Exercise 2
+🔹 Code
+import torch
+import torch.nn.functional as F
+
+v1 = torch.tensor([1.0, 0.0])
+v2 = torch.tensor([0.0, 1.0])
+
+similarity = F.cosine_similarity(v1, v2, dim=0)
+
+print("Cosine Similarity:", similarity.item())
+
+
+
+🔹 Answer
+0 (different)
+
+
+✅ ✅ ✅ TEXT CLASSIFICATION
+✅ Exercise 1
+🔹 Question
+Classify text
+
+🔹 Code
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.naive_bayes import MultinomialNB
+
+texts = ["good movie","bad movie"]
+labels = ["Positive","Negative"]
+
+vec = CountVectorizer()
+X = vec.fit_transform(texts)
+
+model = MultinomialNB()
+model.fit(X, labels)
+
+print(model.predict(vec.transform(["good movie"])))
+
+
+🔹 Answer
+Positive
+
+
+----------------ex-02-------pending
+
+
+✅ ✅ ✅ SELF‑ATTENTION / TRANSFORMER
+✅ Exercise 1
+🔹 Question
+Define Query, Key, Value
+
+🔹 Answer
+
+Query → asks
+Key → matches
+Value → gives output
+
+
+✅ Exercise 2
+🔹 Diagram
+Input
+↓
+Embedding
+↓
+Self Attention
+↓
+Output
+
+
+
+✅ ✅ ✅ TRANSFER LEARNING
+✅ Exercise 1
+🔹 Question
+Replace final layer
+
+🔹 Code
+from torchvision import models
+import torch.nn as nn
+
+model = models.resnet18(pretrained=True)
+
+print(model.fc)
+
+model.fc = nn.Linear(512,2)
+
+print(model.fc)
+
+🔹 Answer
+Final layer modified
+
+✅ Exercise 2
+🔹 Code
+for p in model.parameters():
+    p.requires_grad = False
+
+for p in model.fc.parameters():
+    p.requires_grad = True
+
+
+🔹 Answer
+Only final layer trains
+
+
+✅ ✅ ✅ FINE‑TUNING
+✅ Exercise 1
+🔹 Question
+Unfreeze layer4
+
+🔹 Code
+for p in model.parameters():
+    p.requires_grad = False
+
+for p in model.layer4.parameters():
+    p.requires_grad = True
+
+for name, p in model.named_parameters():
+    if p.requires_grad:
+        print(name)
+
+🔹 Answer
+Layer4 is trainable
+
+🔹 Difference
+Transfer → final layer only
+Fine‑tuning → deeper layers also
+
+
+
+✅ ✅ ✅ CONCEPTUAL (ONE LINE)
+
+TF‑IDF → importance
+Word2Vec → context vectors
+GloVe → global embeddings
+Embedding → numeric words
+Cosine → similarity
+Classification → labels
+Self‑Attention → focus
+Transformer → attention model
+Transfer Learning → reuse model
+Fine‑Tuning → retrain layers

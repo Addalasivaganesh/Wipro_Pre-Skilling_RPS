@@ -1,0 +1,25 @@
+# Intelligent FAQ System
+
+## Overview
+This is a mini NLP project to retrieve answers for user queries.
+
+## Features
+- TF-IDF search
+- Cosine similarity
+- Top 3 results
+- Search history
+- Word2Vec demo
+
+## Tech Stack
+- Python
+- Pandas
+- Scikit-learn
+- Gensim
+
+## Run Project
+python final_project.py
+
+## Learning
+- NLP basics
+- Search systems
+- RAG concept

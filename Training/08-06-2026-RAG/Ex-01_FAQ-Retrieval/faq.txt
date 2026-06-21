@@ -1,0 +1,3 @@
+How to reset password?|Use the forgot password option.
+How to download certificate?|Certificates are available in the dashboard.
+Where are recordings available?|Recordings are available under course resources.

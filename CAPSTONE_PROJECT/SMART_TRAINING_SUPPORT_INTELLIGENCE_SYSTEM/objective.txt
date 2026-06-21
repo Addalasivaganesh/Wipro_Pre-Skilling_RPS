@@ -1,0 +1,17 @@
+Capstone Project: Smart Training Support Intelligence System
+Objective
+This project aims to build a complete Natural Language Processing (NLP) based support assistant for an online training platform. The system is designed to automate and enhance the handling of support queries by applying multiple NLP techniques and machine learning models.
+The solution focuses on improving efficiency, reducing manual effort, and providing intelligent responses to user queries.
+Key Features
+The system is capable of:
+
+Preprocessing and cleaning support messages
+Identifying important terms using TF-IDF analysis
+Training word embeddings using Word2Vec
+Finding similar support tickets based on semantic similarity
+Classifying tickets into predefined categories
+Performing sentiment analysis on user queries
+Extracting key information using Named Entity Recognition (NER)
+Applying an RNN-based classifier for advanced text processing
+Answering frequently asked questions using a simple Retrieval-Augmented Generation (RAG) approach (without using large language models)
+Creating reusable prompt templates for consistent query handling

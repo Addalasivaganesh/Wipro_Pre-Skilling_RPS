@@ -1,0 +1,54 @@
+ MODULE‑10 FINAL CONTENT (COPY THIS)
+
+Zero-shot Prompt
+
+Classify the following support message into one category.
+Categories:
+Course Access, Login Issue, Certificate, Recording, Schedule, Feedback
+Message:
+I cannot access the course.
+
+
+One-shot Prompt
+
+Classify the following support message into one category.
+Categories:
+Course Access, Login Issue, Certificate, Recording, Schedule, Feedback
+Example:
+Message: I forgot my password
+Category: Login Issue
+
+Now classify:
+Message:
+I cannot access the course.
+
+
+Few-shot Prompt
+
+Classify the following support message into one category.
+Categories:
+Course Access, Login Issue, Certificate, Recording, Schedule, Feedback
+Examples:
+Message: I forgot my password
+Category: Login Issue
+Message: Please share the recording link
+Category: Recording
+Message: My certificate name is wrong
+Category: Certificate
+
+Now classify:
+Message:
+I cannot access the course.
+
+
+Role-based Prompt
+
+You are a support assistant for an online training platform.
+Your task is to classify user messages and suggest the appropriate response based on the knowledge base.
+Categories:
+Course Access, Login Issue, Certificate, Recording, Schedule, Feedback
+Message:
+I cannot access the course.
+Provide:
+1. Category
+2. Suitable response

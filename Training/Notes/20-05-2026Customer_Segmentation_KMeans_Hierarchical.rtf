@@ -1,0 +1,549 @@
+{\rtf1\ansi\deff3\adeflang1025
+{\fonttbl{\f0\froman\fprq2\fcharset0 Times New Roman;}{\f1\froman\fprq2\fcharset2 Symbol;}{\f2\fswiss\fprq2\fcharset0 Arial;}{\f3\fswiss\fprq0\fcharset0 Calibri;}{\f4\fnil\fprq0\fcharset128 Segoe UI Symbol;}{\f5\fnil\fprq0\fcharset128 Cambria Math;}{\f6\fnil\fprq2\fcharset0 Microsoft YaHei;}{\f7\fnil\fprq2\fcharset0 Arial;}{\f8\fswiss\fprq0\fcharset128 Arial;}}
+{\colortbl;\red0\green0\blue0;\red128\green128\blue128;}
+{\stylesheet{\s0\snext0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033 Default;}
+{\s15\sbasedon0\snext16\sb240\sa120\keepn\hich\af6\dbch\af7\afs28\loch\f2\fs28 Heading;}
+{\s16\sbasedon0\snext16\sb0\sa120 Text body;}
+{\s17\sbasedon16\snext17\sb0\sa120\dbch\af8 List;}
+{\s18\sbasedon0\snext18\sb120\sa120\noline\i\dbch\af8\afs24\ai\fs24 Caption;}
+{\s19\sbasedon0\snext19\noline\dbch\af8 Index;}
+}{\info{\creatim\yr0\mo0\dy0\hr0\min0}{\revtim\yr0\mo0\dy0\hr0\min0}{\printim\yr0\mo0\dy0\hr0\min0}{\comment OpenOffice}{\vern41160}}\deftab720\deftab720\deftab720\deftab720\deftab720\deftab720\deftab720\deftab720\deftab720\deftab720\deftab720\deftab720\deftab720\deftab720\deftab720\deftab720\deftab720\deftab720\deftab720\deftab720
+
+{\*\pgdsctbl
+{\pgdsc0\pgdscuse195\pgwsxn12240\pghsxn15840\marglsxn1800\margrsxn1800\margtsxn1440\margbsxn1440\pgdscnxt0 Default;}}
+\formshade{\*\pgdscno0}\paperh15840\paperw12240\margl1800\margr1800\margt1440\margb1440\sectd\sbknone\sectunlocked1\pgndec\pgwsxn12240\pghsxn15840\marglsxn1800\margrsxn1800\margtsxn1440\margbsxn1440\ftnbj\ftnstart1\ftnrstcont\ftnnar\aenddoc\aftnrstcont\aftnstart1\aftnnrlc
+\pgndec\pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\qc\sb0\sa200{\afs56\rtlch \ltrch\loch\fs56\lang9
+Customer Segmentation using K-Means & Hierarchical Clustering}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+1. Introduction}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+In real-world machine learning, customer segmentation is used to:}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Identify customer behavior}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Group similar customers}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Improve business decisions}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+We used:}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+K-Means Clustering}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Hierarchical (Agglomerative) Clustering}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\fs22\lang9
+ }{\afs22\rtlch \ltrch\loch\fs22\lang9
+2. Learning Journey (Past Few Weeks Flow)}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\fs22\lang9
+ }{\afs22\rtlch \ltrch\loch\fs22\lang9
+Step-by-Step Learning Flow:}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Data Collection}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\fs22\lang9
+       }{\hich\af5\dbch\af5\afs22\rtlch \ltrch\fs22\lang9\loch\f5
+\u8595\'3f}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Data Understanding}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\fs22\lang9
+       }{\hich\af5\dbch\af5\afs22\rtlch \ltrch\fs22\lang9\loch\f5
+\u8595\'3f}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Data Preprocessing}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\fs22\lang9
+       }{\hich\af5\dbch\af5\afs22\rtlch \ltrch\fs22\lang9\loch\f5
+\u8595\'3f}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Feature Selection}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\fs22\lang9
+       }{\hich\af5\dbch\af5\afs22\rtlch \ltrch\fs22\lang9\loch\f5
+\u8595\'3f}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+K-Means Clustering}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\fs22\lang9
+       }{\hich\af5\dbch\af5\afs22\rtlch \ltrch\fs22\lang9\loch\f5
+\u8595\'3f}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Elbow Method (Finding K)}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\fs22\lang9
+       }{\hich\af5\dbch\af5\afs22\rtlch \ltrch\fs22\lang9\loch\f5
+\u8595\'3f}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Cluster Analysis}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\fs22\lang9
+       }{\hich\af5\dbch\af5\afs22\rtlch \ltrch\fs22\lang9\loch\f5
+\u8595\'3f}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Hierarchical Clustering}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\fs22\lang9
+     }
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\fs22\lang9
+ }{\afs22\rtlch \ltrch\loch\fs22\lang9
+3. Dataset Used}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Customer data contains:}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Account Balance}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Monthly Transactions}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\fs22\lang9
+ }{\afs22\rtlch \ltrch\loch\fs22\lang9
+These features represent:}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Financial strength}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Activity level}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\fs22\lang9
+ }{\afs22\rtlch \ltrch\loch\fs22\lang9
+4. K-Means Clustering}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\fs22\lang9
+ }{\afs22\rtlch \ltrch\loch\fs22\lang9
+What is K-Means?}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+K-Means groups data into K clusters based on similarity.}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\fs22\lang9
+ }{\afs22\rtlch \ltrch\loch\fs22\lang9
+Working Flow:}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Choose K}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\fs22\lang9
+   }{\hich\af5\dbch\af5\afs22\rtlch \ltrch\fs22\lang9\loch\f5
+\u8595\'3f}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Initialize Centroids}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\fs22\lang9
+   }{\hich\af5\dbch\af5\afs22\rtlch \ltrch\fs22\lang9\loch\f5
+\u8595\'3f}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Assign Points to Nearest Centroid}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\fs22\lang9
+   }{\hich\af5\dbch\af5\afs22\rtlch \ltrch\fs22\lang9\loch\f5
+\u8595\'3f}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Recalculate Centroids}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\fs22\lang9
+   }{\hich\af5\dbch\af5\afs22\rtlch \ltrch\fs22\lang9\loch\f5
+\u8595\'3f}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Repeat until stable}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\fs22\lang9
+ }{\afs22\rtlch \ltrch\loch\fs22\lang9
+5. Elbow Method (Selecting K)}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\fs22\lang9
+ }{\afs22\rtlch \ltrch\loch\fs22\lang9
+Why needed?}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+To find optimal number of clusters}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\fs22\lang9
+ }{\afs22\rtlch \ltrch\loch\fs22\lang9
+Process:}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Try K = 1 to 10}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\fs22\lang9
+      }{\hich\af5\dbch\af5\afs22\rtlch \ltrch\fs22\lang9\loch\f5
+\u8595\'3f}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Calculate WCSS}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\fs22\lang9
+      }{\hich\af5\dbch\af5\afs22\rtlch \ltrch\fs22\lang9\loch\f5
+\u8595\'3f}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Plot Graph}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\fs22\lang9
+      }{\hich\af5\dbch\af5\afs22\rtlch \ltrch\fs22\lang9\loch\f5
+\u8595\'3f}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Find Elbow Point}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\fs22\lang9
+ }{\afs22\rtlch \ltrch\loch\fs22\lang9
+Result:}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\fs22\lang9
+ }{\afs22\rtlch \ltrch\loch\fs22\lang9
+Optimal K = 3}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\fs22\lang9
+ }{\afs22\rtlch \ltrch\loch\fs22\lang9
+Meaning:}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Cluster 1 }{\hich\af5\dbch\af5\afs22\rtlch \ltrch\loch\fs22\lang9\loch\f5
+\u8594\'3f}{\afs22\rtlch \ltrch\loch\fs22\lang9
+ Low customers}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Cluster 2 }{\hich\af5\dbch\af5\afs22\rtlch \ltrch\loch\fs22\lang9\loch\f5
+\u8594\'3f}{\afs22\rtlch \ltrch\loch\fs22\lang9
+ Medium customers}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Cluster 3 }{\hich\af5\dbch\af5\afs22\rtlch \ltrch\loch\fs22\lang9\loch\f5
+\u8594\'3f}{\afs22\rtlch \ltrch\loch\fs22\lang9
+ Premium customers}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\fs22\lang9
+ }{\afs22\rtlch \ltrch\loch\fs22\lang9
+6. Hierarchical Clustering (From Image Explanation)}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\fs22\lang9
+ }{\afs22\rtlch \ltrch\loch\fs22\lang9
+Definition:}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Hierarchical Clustering:}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+gradually merges similar data points}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\fs22\lang9
+ }{\afs22\rtlch \ltrch\loch\fs22\lang9
+Real-World Analogy (from your image):}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Think of a classroom:}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Step 1: Every student is alone}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Step 2: Closest students form pairs}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Step 3: Pairs form groups}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Step 4: Groups merge into bigger groups}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\fs22\lang9
+ }{\afs22\rtlch \ltrch\loch\fs22\lang9
+This process = Hierarchical Clustering}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\fs22\lang9
+ }{\afs22\rtlch \ltrch\loch\fs22\lang9
+7. How Agglomerative Works}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Start: Each point = 1 cluster}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\fs22\lang9
+      }{\hich\af5\dbch\af5\afs22\rtlch \ltrch\fs22\lang9\loch\f5
+\u8595\'3f}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Find closest clusters}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\fs22\lang9
+      }{\hich\af5\dbch\af5\afs22\rtlch \ltrch\fs22\lang9\loch\f5
+\u8595\'3f}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Merge them}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\fs22\lang9
+      }{\hich\af5\dbch\af5\afs22\rtlch \ltrch\fs22\lang9\loch\f5
+\u8595\'3f}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Repeat}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\fs22\lang9
+      }{\hich\af5\dbch\af5\afs22\rtlch \ltrch\fs22\lang9\loch\f5
+\u8595\'3f}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Stop when clusters = 3}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\fs22\lang9
+ }{\afs22\rtlch \ltrch\loch\fs22\lang9
+8. Flow Comparison (Very Important)}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\fs22\lang9
+ }{\afs22\rtlch \ltrch\loch\fs22\lang9
+K-Means vs Hierarchical Flow}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+K-Means}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+--------}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Start with K}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\hich\af5\dbch\af5\afs22\rtlch \ltrch\fs22\lang9\loch\f5
+\u8595\'93}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Divide data directly}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\hich\af5\dbch\af5\afs22\rtlch \ltrch\fs22\lang9\loch\f5
+\u8595\'93}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Optimize clusters}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Hierarchical}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+-------------}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Start with 1 point each}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\hich\af5\dbch\af5\afs22\rtlch \ltrch\fs22\lang9\loch\f5
+\u8595\'93}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Merge step-by-step}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\hich\af5\dbch\af5\afs22\rtlch \ltrch\fs22\lang9\loch\f5
+\u8595\'93}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Build hierarchy}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\fs22\lang9
+ }{\afs22\rtlch \ltrch\loch\fs22\lang9
+9. Cluster Interpretation}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\fs22\lang9
+ }{\afs22\rtlch \ltrch\loch\fs22\lang9
+Final Clusters:}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+ClusterTypeCluster 0Low-value customersCluster 1Medium customersCluster 2Premium customers }
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\fs22\lang9
+ }{\afs22\rtlch \ltrch\loch\fs22\lang9
+10. Real Machine Learning Perspective}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+In real companies:}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\fs22\lang9
+ }{\afs22\rtlch \ltrch\loch\fs22\lang9
+Banking:}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Identify premium users}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Offer special services}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\fs22\lang9
+ }{\afs22\rtlch \ltrch\loch\fs22\lang9
+Marketing:}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Target customers differently}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\fs22\lang9
+ }{\afs22\rtlch \ltrch\loch\fs22\lang9
+Business:}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Increase revenue}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Improve retention}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\fs22\lang9
+ }{\afs22\rtlch \ltrch\loch\fs22\lang9
+11. Why We Used Both Methods}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+K-Means }{\hich\af5\dbch\af5\afs22\rtlch \ltrch\loch\fs22\lang9\loch\f5
+\u8594\'3f}{\afs22\rtlch \ltrch\loch\fs22\lang9
+ fast and simple}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Hierarchical }{\hich\af5\dbch\af5\afs22\rtlch \ltrch\loch\fs22\lang9\loch\f5
+\u8594\'3f}{\afs22\rtlch \ltrch\loch\fs22\lang9
+ detailed structure}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\fs22\lang9
+ }{\afs22\rtlch \ltrch\loch\fs22\lang9
+Together }{\hich\af5\dbch\af5\afs22\rtlch \ltrch\loch\fs22\lang9\loch\f5
+\u8594\'3f}{\afs22\rtlch \ltrch\loch\fs22\lang9
+ better understanding}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\fs22\lang9
+ }{\afs22\rtlch \ltrch\loch\fs22\lang9
+12. Conclusion}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+K-Means helps in quick clustering}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Elbow Method helps in choosing optimal K}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Hierarchical Clustering gives deep insight into relationships}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Both are powerful for customer segmentation}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+ClusterTypeCluster 0Low-value customersCluster 1Medium customersCluster 2Premium customers }{\hich\af4\dbch\af4\afs22\rtlch \ltrch\loch\fs22\lang9\loch\f4
+\u55357\'3f\u56462\'3f}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\hich\af4\dbch\af4\afs22\rtlch \ltrch\fs22\lang9\loch\f4
+\u55357\'3f\u56633\'3f}{\afs22\rtlch \ltrch\fs22\lang9
+ }{\afs22\rtlch \ltrch\loch\fs22\lang9
+10. Real Machine Learning Perspective}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+In real companies:}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\hich\af4\dbch\af4\afs22\rtlch \ltrch\fs22\lang9\loch\f4
+\u9989\'3f}{\afs22\rtlch \ltrch\fs22\lang9
+ }{\afs22\rtlch \ltrch\loch\fs22\lang9
+Banking:}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Identify premium users}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Offer special services}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\hich\af4\dbch\af4\afs22\rtlch \ltrch\fs22\lang9\loch\f4
+\u9989\'3f}{\afs22\rtlch \ltrch\fs22\lang9
+ }{\afs22\rtlch \ltrch\loch\fs22\lang9
+Marketing:}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Target customers differently}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\hich\af4\dbch\af4\afs22\rtlch \ltrch\fs22\lang9\loch\f4
+\u9989\'3f}{\afs22\rtlch \ltrch\fs22\lang9
+ }{\afs22\rtlch \ltrch\loch\fs22\lang9
+Business:}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Increase revenue}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Improve retention}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\hich\af4\dbch\af4\afs22\rtlch \ltrch\fs22\lang9\loch\f4
+\u55357\'3f\u56633\'3f}{\afs22\rtlch \ltrch\fs22\lang9
+ }{\afs22\rtlch \ltrch\loch\fs22\lang9
+11. Why We Used Both Methods}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+K-Means }{\hich\af5\dbch\af5\afs22\rtlch \ltrch\loch\fs22\lang9\loch\f5
+\u8594\'3f}{\afs22\rtlch \ltrch\loch\fs22\lang9
+ fast and simple}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Hierarchical }{\hich\af5\dbch\af5\afs22\rtlch \ltrch\loch\fs22\lang9\loch\f5
+\u8594\'3f}{\afs22\rtlch \ltrch\loch\fs22\lang9
+ detailed structure}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\hich\af4\dbch\af4\afs22\rtlch \ltrch\fs22\lang9\loch\f4
+\u55357\'3f\u56393\'3f}{\afs22\rtlch \ltrch\fs22\lang9
+ }{\afs22\rtlch \ltrch\loch\fs22\lang9
+Together }{\hich\af5\dbch\af5\afs22\rtlch \ltrch\loch\fs22\lang9\loch\f5
+\u8594\'3f}{\afs22\rtlch \ltrch\loch\fs22\lang9
+ better understanding}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\hich\af4\dbch\af4\afs22\rtlch \ltrch\fs22\lang9\loch\f4
+\u55357\'3f\u56633\'3f}{\afs22\rtlch \ltrch\fs22\lang9
+ }{\afs22\rtlch \ltrch\loch\fs22\lang9
+12. Conclusion}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+K-Means helps in quick clustering}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Elbow Method helps in choosing optimal K}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Hierarchical Clustering gives deep insight into relationships}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+Both are powerful for customer segmentation}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par \pard\plain \s0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\hich\af3\langfe1033\dbch\af3\afs24\lang1033\loch\f3\fs24\lang1033\sl276\slmult1\sb0\sa200{\afs22\rtlch \ltrch\loch\fs22\lang9
+}
+\par }

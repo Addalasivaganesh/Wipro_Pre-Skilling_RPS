@@ -1,0 +1,23 @@
+Zero-Shot:
+Classify the query:
+I forgot my password
+
+One-Shot:
+Query: How do I reset my password?
+Category: Login
+
+Query: Where are recordings available?
+Category:
+
+Few-Shot:
+Query: How do I reset my password?
+Category: Login
+
+Query: How do I access my course?
+Category: Course Access
+
+Query: Where are recordings available?
+Category: Recordings
+
+Query: I forgot my password
+Category:

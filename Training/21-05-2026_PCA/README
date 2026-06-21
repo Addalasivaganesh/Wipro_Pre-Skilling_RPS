@@ -1,0 +1,95 @@
+# Machine Learning Classification Concepts – Deep Dive
+
+## Overview
+This repository contains detailed notes and conceptual understanding of core Machine Learning classification algorithms studied as part of training.
+
+The focus is on building strong intuition, understanding real-world applications, and preparing for technical discussions and evaluations.
+
+---
+
+## Topics Covered
+
+### 1. Decision Tree
+- Tree-based model using conditional logic
+- Concepts: nodes, branches, leaves
+- Splitting using Gini Index / Entropy
+- Example: Loan approval system
+
+---
+
+### 2. Random Forest
+- Ensemble method using multiple Decision Trees
+- Concept of voting for final prediction
+- Reduces overfitting and improves accuracy
+- Real-world analogy: multiple experts deciding together
+
+---
+
+### 3. Support Vector Machine (SVM)
+- Classification algorithm that finds the best separating boundary
+- Focus on maximizing margin between classes
+- Works well for high-dimensional data
+
+---
+
+### 4. Hyperplane
+- Decision boundary used by SVM
+- Line in 2D, plane in 3D, hyperplane in higher dimensions
+
+---
+
+### 5. Margin
+- Distance between boundary and nearest data points
+- Larger margin leads to better model performance
+
+---
+
+### 6. Support Vectors
+- Closest points to the boundary
+- Critical in defining the decision boundary
+
+---
+
+### 7. Naive Bayes
+- Probability-based classification algorithm
+- Based on Bayes theorem
+- Assumes feature independence
+
+---
+
+### 8. Types of Naive Bayes
+- Gaussian: Continuous data
+- Multinomial: Text data
+- Bernoulli: Binary data
+
+---
+
+### 9. Real-World Applications
+- Spam detection
+- Sentiment analysis
+- Document classification
+- Recommendation systems
+- Medical diagnosis
+
+---
+
+### 10. Agentic Systems Memory
+- AI systems using memory and tools
+- Components: LLM, short-term memory, long-term memory, tools
+- Enables adaptive and intelligent decision-making
+
+---
+
+## Key Learnings
+- Understanding different classification algorithms and their working principles
+- Identifying when to use each algorithm based on problem type
+- Building intuition for model decision-making
+- Connecting theory with real-world applications
+
+---
+
+## Conclusion
+These concepts form the foundation of Machine
+Learning classification techniques and are
+essential for building robust predictive models and
+preparing for technical interviews and evaluations.
